@@ -10,21 +10,26 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'chai'],
+    frameworks: ['mocha', 'requirejs'],
 
 
     // list of files / patterns to load in the browser
     files: [
-      "client/assets/vendors/jquery/dist/jquery.min.js",
-      "client/assets/vendors/handlebars/handlebars.min.js",
-      "client/assets/vendors/ember/ember.js",
-      "client/assets/vendors/almond.js",
-      "client/assets/vendors/globalizer.js",
-      "client/assets/vendors/mocha-adapter.js",
-      "client/assets/build/application.js",
-      "client/assets/build/templates.js",
-      "tests/client/test-helper.js"
-      //"tests/client/helpers/start-app.js"
+      //'client/assets/vendors/almond.js',
+//       'client/assets/build/application.js',
+//       'client/assets/build/templates.js',
+      'tests/client/karma-config.js',
+
+      'client/assets/vendors/jquery/dist/jquery.min.js',
+      'client/assets/vendors/handlebars/handlebars.min.js',
+      'client/assets/vendors/ember/ember.js',
+      'client/assets/vendors/ember-data/ember-data.min.js',
+      //'client/assets/vendors/mocha-adapter.js',
+		  //'tests/vendors/resolver.js',
+      {pattern: 'tests/client/**/*.js', included: false},
+      {pattern: 'tests/vendors/**/*.js', included: false},
+      {pattern: 'client/app/**/*.js', included: false},
+      {pattern: 'client/assets/vendors/**/*.js', included: false }
     ],
 
 
@@ -65,7 +70,8 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    //browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
 
     // Continuous Integration mode
@@ -75,7 +81,9 @@ module.exports = function(config) {
     plugins: [
 			'karma-mocha',
       'karma-chai',
-			'karma-phantomjs-launcher'
+      'karma-requirejs',
+			//'karma-phantomjs-launcher'
+			'karma-chrome-launcher'
 		]
   });
 };

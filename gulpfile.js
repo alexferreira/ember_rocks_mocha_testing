@@ -315,6 +315,18 @@ function rebuildProject(event) {
   }
 }
 
+gulp.task('test', function () {
+  return gulp.src(['tests/client/**/*.js', '!tests/client/build/**/*.js'])
+    .pipe($.es6ModuleTranspiler({
+      type: 'amd',
+      moduleName: function(path) {
+        return 'TEST/' + path;
+      }
+    }))
+    //.pipe($.concat('application.js'))
+    .pipe(gulp.dest('tests/client/build'));
+});
+
 gulp.task('serve', [ 'express', 'sass', 'build', 'injectLRScript' ], function() {
   gulp.start('open');
   gulp.watch( clientFolder + '/assets/styles/sass/**/*.{scss,sass}', function(event) {
