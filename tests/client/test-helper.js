@@ -2,11 +2,10 @@
 
 //document.write('<div id="ember-testing-container"><div id="ember-testing"></div></div>');
 
-//define(['chai', 'ember/resolver'], function(Chai, Resolver) {
-define(['chai'], function(Chai) {
+define(['chai', 'ember/resolver'], function(Chai, Resolver) {
   Chai.should();
 
-  //var resolver = Resolver.create();
+  var resolver = Resolver.create();
 
 //   resolver.namespace = {
 //     modulePrefix: 'TEST'
@@ -23,7 +22,7 @@ define(['chai'], function(Chai) {
     it("should pass", function(done){
       [1,2,3].indexOf(5).should.equal(-1);
       [1,2,3].indexOf(0).should.equal(-1);
-      //resolver.should.be.an('object');
+      resolver.should.be.an('object');
       done();
     });
   });

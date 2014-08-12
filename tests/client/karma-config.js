@@ -24,7 +24,7 @@ require.config({
 		'ember-data' : 'assets/vendors/ember-data/ember-data.min',
     'adaptor': 'assets/vendors/mocha-adapter',
 
-		//'ember/resolver' : 'base/tests/vendors/resolver',
+		'ember/resolver' : '../tests/vendors/resolver',
 		'chai': '../tests/vendors/chai',
 		'mocha': '../tests/vendors/mocha/mocha'
 	},
@@ -34,10 +34,10 @@ require.config({
 			exports : 'Ember',
 			deps : ['jquery', 'handlebars']
 		},
-//     'ember/resolver' : {
-//       exports : 'Resolver',
-// 			deps : ['ember']
-//     },
+    'ember/resolver' : {
+      exports : 'Resolver',
+			deps : ['ember']
+    },
 		'ember-data' : {
 			exports : 'DS'
 		},
