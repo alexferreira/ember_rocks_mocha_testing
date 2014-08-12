@@ -1,0 +1,42 @@
+{
+  "node": true,
+  "browser": true,
+  "esnext": true,
+  "bitwise": true,
+  "camelcase": false,
+  "curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "indent": 2,
+  "newcap": true,
+  "noarg": true,
+  "quotmark": "single",
+  "undef": true,
+  "unused": "vars",
+  "strict": false,
+  "trailing": true,
+  "smarttabs": true,
+  "maxdepth": 4,
+  "maxlen": 100,
+
+  "predef": {
+    "document": true,
+    "window": true
+  },
+
+  "globals": {
+    "global": false,
+    "process": false,
+    "console": false,
+    "Buffer": false,
+    "require": false,
+    "__filename": false,
+    "__dirname": false,
+    "module": false,
+    "exports": false,
+    "window": false,
+    "alert": false,
+    "jQuery": false,
+    "Ember": false
+  }
+}

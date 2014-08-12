@@ -1,0 +1,18 @@
+<h2> Users Page </h2>
+
+<ul>
+  {{#each user in controller}}
+    <li>
+      <h3> {{#link-to 'users.user' user.id}} {{ user.fullName }} {{/link-to}} </h3>
+      <ul>
+        {{#each others in user.others}}
+          <li>
+            <p> {{ others.other }} </p>
+          </li>
+        {{/each}}
+      </ul>
+    </li>
+    {{else}}
+      <li>No user</li>
+  {{/each}}
+</ul>

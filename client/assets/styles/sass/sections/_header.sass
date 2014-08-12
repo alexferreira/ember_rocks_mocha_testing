@@ -1,0 +1,58 @@
+header
+  width: 100%
+  height: $header-height
+  background-image: linear-gradient(to bottom,rgb(60, 60, 60) 0,rgb(34, 34, 34) 100%)
+  background-color: rgb(34, 34, 34)
+  position: relative
+  margin: 0 auto
+
+  & > div > *
+    float: left
+    padding: 0
+    margin: 0
+
+  button.menu
+    -webkit-tap-highlight-color: transparent
+    position: relative
+    padding: 10px 8px 6px
+    margin: 7px 15px 0
+    background-color: rgba(0, 0, 0, 0)
+    background-image: none
+    border: 1px solid rgba(0, 0, 0, 0)
+    border-radius: 4px
+    border-color: rgb(51, 51, 51)
+
+    span
+      text-indent: -9999px
+      display: block
+      width: 22px
+      height: 2px
+      margin-bottom: 4px
+      border-radius: 1px
+      background-color: white
+
+    &:hover, &:focus
+      background-color: rgb(41, 41, 41)
+    &:active
+      background-color: rgb(51, 51, 51)
+
+  h1
+    font-size: 1em
+    height: $header-height
+    a
+      font-size: 2em
+      font-weight: 500
+      color: rgb(119, 119, 119)
+      text-transform: uppercase
+      line-height: $header-height
+
+      &:hover
+        color: white
+
+// Larger Screens - desktops and tablets
+@media all and (min-width: 990px)
+  header
+    padding: 0 5%
+
+    button.menu
+      display: none

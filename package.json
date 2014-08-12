@@ -1,0 +1,59 @@
+{
+  "name": "Ember_Rocks",
+  "description": "Ember Application Boilerplate",
+  "author": {
+    "name": "Matt Ma",
+    "email": "matt@mattmadesign.com"
+  },
+  "version": "0.1.8",
+  "private": true,
+  "repository": "https://github.com/mattma/ember-rocks",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "./server/",
+    "build": "em build",
+    "serve": "em serve"
+  },
+  "dependencies": {
+    "express": "*",
+    "static-favicon": "~1.0.0",
+    "morgan": "~1.0.0",
+    "cookie-parser": "~1.0.1",
+    "body-parser": "~1.0.0",
+    "debug": "~0.7.4",
+    "jade": "*"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.6",
+    "gulp-autoprefixer": "^0.0.8",
+    "gulp-cache": "^0.2.0",
+    "gulp-changed": "^0.4.0",
+    "gulp-if": "^1.2.4",
+    "gulp-imagemin": "^0.6.1",
+    "gulp-jshint": "^1.7.1",
+    "gulp-load-plugins": "^0.5.3",
+    "gulp-replace": "^0.4.0",
+    "gulp-ruby-sass": "^0.6.0",
+    "gulp-size": "^0.4.0",
+    "gulp-uglify": "^0.3.1",
+    "jshint-stylish": "^0.4.0",
+    "gulp-useref": "^0.5.0",
+    "gulp-csso": "^0.2.9",
+    "gulp-uncss": "^0.4.4",
+    "gulp-minify-html": "^0.1.4",
+    "del": "^0.1.1",
+    "gulp-concat": "^2.3.4",
+    "gulp-notify": "^1.4.0",
+    "gulp-ember-handlebars": "^0.6.0",
+    "gulp-es6-module-transpiler": "^0.1.3",
+    "gulp-util": "^3.0.0",
+    "ember-rocks": "^0.1.7",
+    "opn": "^0.1.2",
+    "tiny-lr": "^0.0.5",
+    "psi": "^0.1.1"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "license": ""
+}
