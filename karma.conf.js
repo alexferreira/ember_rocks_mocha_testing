@@ -77,11 +77,11 @@ module.exports = function(config) {
     singleRun: false,
 
     plugins: [
-			'karma-mocha',
+      'karma-mocha',
       'karma-chai',
       'karma-requirejs',
-			//'karma-phantomjs-launcher'
-			'karma-chrome-launcher'
-		]
+      //'karma-phantomjs-launcher'
+      'karma-chrome-launcher'
+    ]
   });
 };
