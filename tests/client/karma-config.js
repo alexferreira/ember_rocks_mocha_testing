@@ -1,7 +1,7 @@
 'use strict';
 
 var allTestFiles = [];
-//var TEST_REGEXP = /Test\.js$/;
+//var TEST_REGEXP = /build\/*.spec\.js$/;
 var TEST_REGEXP = /\.spec.js$/;
 
 Object.keys(window.__karma__.files).forEach(function(file) {
