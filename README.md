@@ -24,15 +24,15 @@ There are a couple of candidates of ES6 Module preprocessors. 1> [karma-es6-modu
 
 Solution 1: 
 
-find a good Karma ES6 Module preprocessor so that I could compile ES6 code like `import Resolver from 'ember/resolver';`, currently, it will have an **parse error** in the karma runner. so that I have to implement the *amd* style in `testing-spec.js`. But I could not include `./client/assets/build/application.js` and `./client/assets/build/template.js` to test any client side logic since those two files are already *amd* ready. 
+Finding a good Karma ES6 Module preprocessor so that it could compile ES6 module code like `import Resolver from 'ember/resolver';`. Hopefully, any test files could import anything from the *Application* *./client* folder logic (ES6 styles) as needed. Currently, karma runner won't execute correctly with an **parse error** which it confused with `import` statement. In current implementation, I have to do the *amd* style in `testing.spec.js`. But I could not include `./client/assets/build/application.js` and `./client/assets/build/template.js` to test any client side logic since those two files are already *amd* ready which concated all the defines statement.
 
 Solution 2: 
 
-I have implemented another task in *gulpfile.js*. Line 318, `test` command. When you run `gulp test`, it will compile any ES6 modules in *./tests/client/*.spec.js* into a *amd* ready *./tests/build/*.spec.js* format. Then go to `./tests/client/karma-config.js`, shift the comment on line 4 and line 5. Well, it still won't work out of box since you need to add some es6 implemenation code there. Some addtional configurations are needed. 
+I have implemented another gulp task in *gulpfile.js*. Line 318, `test` command. When you run `gulp test`, it will compile any ES6 modules in *./tests/client/*.spec.js* into a *amd* ready *./tests/build/*.spec.js* format. You need to do some configuration settings. Ex:  go to `./tests/client/karma-config.js`, shift the comment on line 4 and line 5. Well, it still won't work out of box since you need to add some es6 implemenation code there. 
 
 Solution 3: 
 
-It may have to switch to [testem](https://github.com/airportyh/testem) instead of [karma](https://github.com/karma-runner/karma). But I really really like **karma**, and I have a lot of successful stories with Karma runner without ES6 modules. 
+It may have to switch to [testem](https://github.com/airportyh/testem) instead of [karma](https://github.com/karma-runner/karma). But I really really like **karma**, and I had a lot of successful stories with Karma runner (without ES6 modules). 
 
 
 ## Pull Requests or Sugguestions are needed
