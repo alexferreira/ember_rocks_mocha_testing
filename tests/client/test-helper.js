@@ -2,14 +2,40 @@
 
 //document.write('<div id="ember-testing-container"><div id="ember-testing"></div></div>');
 
+// define(
+//   ['chai', 'ember/resolver', 'ember', 'rocks/app'],
+//   function(Chai, Resolver, Ember) {
+//   Chai.should();
+
+  // var resolver = Resolver.create(), App;
+
+  // resolver.namespace = {
+  //   modulePrefix: 'TEST'
+  // };
+
+  // var attributes = Ember.merge({
+  //   // useful Test defaults
+  //   rootElement: '#ember-testing',
+  //   LOG_ACTIVE_GENERATION:false,
+  //   LOG_VIEW_LOOKUPS: false
+  // });
+
+//   Router.reopen({
+//     location: 'none'
+//   });
+
+//   Ember.run(function(){
+//     App = Application.create(attributes);
+//     App.setupForTesting();
+//     App.injectTestHelpers();
+//   });
+
+//   App.reset(); // this shouldn't be needed, i want to be able to "start an app at a specific URL"
+
 define(['chai', 'ember/resolver'], function(Chai, Resolver) {
   Chai.should();
 
   var resolver = Resolver.create();
-
-//   resolver.namespace = {
-//     modulePrefix: 'TEST'
-//   };
 
   describe('name', function() {
     it('should be a string', function(done) {
