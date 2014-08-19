@@ -18,12 +18,11 @@ module.exports = function(config) {
       //{pattern: 'tests/client/**/*.js', included: false},
       {pattern: 'tests/client/**/*.es6', included: false},
       {pattern: 'tests/vendors/**/*.js', included: false},
-      {pattern: 'client/app/**/*.js', included: false},
+      //{pattern: 'client/app/**/*.js', included: false},
       {pattern: 'client/assets/vendors/**/*.js', included: false },
 
       // 'client/assets/build/application.js',
       // 'client/assets/build/templates.js',
-      //'node_modules/karma-traceur-preprocessor/node_modules/traceur/bin/traceur-runtime.js',
       'tests/client/karma-config.js',
       'tests/client/*.spec.js'
 

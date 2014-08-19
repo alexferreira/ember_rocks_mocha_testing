@@ -34,7 +34,8 @@ requirejs.config({
       deps : ['ember']
     },
     'ember-data' : {
-      exports : 'DS'
+      exports : 'DS',
+      deps : ['ember']
     },
     handlebars: {
       exports: 'Handlebars'
