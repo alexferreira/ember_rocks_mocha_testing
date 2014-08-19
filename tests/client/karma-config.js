@@ -1,7 +1,4 @@
-'use strict';
-
 var allTestFiles = [];
-//var TEST_REGEXP = /build\/*.spec\.js$/;
 var TEST_REGEXP = /\.spec.js$/;
 
 Object.keys(window.__karma__.files).forEach(function(file) {
@@ -11,7 +8,7 @@ Object.keys(window.__karma__.files).forEach(function(file) {
   }
 });
 
-require.config({
+requirejs.config({
 
   // Base URL relative to the test runner
   // Paths are relative to this
@@ -20,14 +17,12 @@ require.config({
   paths: {
     'jquery'     : 'assets/vendors/jquery/dist/jquery.min',
     'handlebars': 'assets/vendors/handlebars/handlebars.min',
-    'ember': 'assets/vendors/ember/ember.prod',
+    'ember': 'assets/vendors/ember/ember',
     'ember-data' : 'assets/vendors/ember-data/ember-data.min',
     'adaptor': 'assets/vendors/mocha-adapter',
     'ember/load-initializers' : 'assets/vendors/ember-load-initializers/ember-load-initializers',
-
-    'ember/resolver' : '../tests/vendors/resolver',
-    'chai': '../tests/vendors/chai',
-    'mocha': '../tests/vendors/mocha/mocha'
+    'ember/resolver' : 'assets/vendors/ember-resolver/dist/ember-resolver'
+    //'ember/resolver' : '../tests/vendors/resolver'
   },
 
   shim : {
@@ -40,7 +35,8 @@ require.config({
       deps : ['ember']
     },
     'ember-data' : {
-      exports : 'DS'
+      exports : 'DS',
+      deps : ['ember']
     },
     handlebars: {
       exports: 'Handlebars'
