@@ -1,6 +1,7 @@
 import {Calculator} from './calculator.js';
 import Ember from 'ember';
 import DS from 'ember-data';
+import Resolver from 'ember/resolver';
 //import Application from "rocks/app";
 
 describe('Calculator', function () {
@@ -19,12 +20,7 @@ describe('Calculator', function () {
   });
 });
 
-describe('Ember Testing', function () {
-  it('should load up Ember framework', function(){
-    Ember.should.be.an('object');
-    Ember.VERSION.should.equal('1.6.1');
-  });
-
+describe('Vendor Resource', function () {
   it('should load up Ember framework', function(){
     Ember.should.be.an('object');
     Ember.VERSION.should.equal('1.6.1');
@@ -33,5 +29,10 @@ describe('Ember Testing', function () {
   it('should load up Ember Data framework', function(){
     DS.Store.should.be.a('function');
     DS.Store.extend.should.be.a('function');
+  });
+
+  it('should load up Ember Data framework', function(){
+    Resolver.should.be.a('function');
+    Resolver.create.should.be.a('function');
   });
 });
