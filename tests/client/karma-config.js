@@ -17,7 +17,7 @@ requirejs.config({
   paths: {
     'jquery'     : 'assets/vendors/jquery/dist/jquery.min',
     'handlebars': 'assets/vendors/handlebars/handlebars.min',
-    'ember': 'assets/vendors/ember/ember.prod',
+    'ember': 'assets/vendors/ember/ember',
     'ember-data' : 'assets/vendors/ember-data/ember-data.min',
     'adaptor': 'assets/vendors/mocha-adapter',
     'ember/load-initializers' : 'assets/vendors/ember-load-initializers/ember-load-initializers',

@@ -2,7 +2,8 @@ import {Calculator} from './calculator.js';
 import Ember from 'ember';
 import DS from 'ember-data';
 import Resolver from 'ember/resolver';
-//import Application from "rocks/app";
+
+import Application from "rocks/app";
 
 describe('Calculator', function () {
   var calculator;
@@ -35,4 +36,10 @@ describe('Vendor Resource', function () {
     Resolver.should.be.a('function');
     Resolver.create.should.be.a('function');
   });
+});
+
+describe('Application', function () {
+  // it('should load up ember-rocks application', function(){
+  //   Application.create.should.be.an('function');
+  // });
 });

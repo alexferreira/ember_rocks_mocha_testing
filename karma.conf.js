@@ -18,19 +18,19 @@ module.exports = function(config) {
       //{pattern: 'tests/client/**/*.js', included: false},
       {pattern: 'tests/client/**/*.es6', included: false},
       {pattern: 'tests/vendors/**/*.js', included: false},
-      //{pattern: 'client/app/**/*.js', included: false},
+      {pattern: 'client/app/**/*.js', included: false},
       {pattern: 'client/assets/vendors/**/*.js', included: false },
-
-      // 'client/assets/build/application.js',
-      // 'client/assets/build/templates.js',
-      'tests/client/karma-config.js',
-      'tests/client/*.spec.js'
 
       // 'client/assets/vendors/jquery/dist/jquery.min.js',
       // 'client/assets/vendors/handlebars/handlebars.min.js',
       // 'client/assets/vendors/ember/ember.js',
       // 'client/assets/vendors/ember-data/ember-data.min.js',
-      //'client/assets/vendors/mocha-adapter.js',
+      // 'client/assets/vendors/mocha-adapter.js',
+
+      'client/assets/build/application.js',
+      'client/assets/build/templates.js',
+      'tests/client/karma-config.js',
+      'tests/client/*.spec.js'
     ],
 
 
@@ -42,7 +42,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      '**/*.es6': ['traceur']
+      'tests/client/**/*.es6': ['traceur']
     },
 
     traceurPreprocessor: {
