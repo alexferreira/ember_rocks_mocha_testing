@@ -1,17 +1,26 @@
 'use strict';
 
 var allTestFiles = [];
-var TEST_REGEXP = /\.spec.es6$/;
-//var TEST_REGEXP = /\.spec.js$/;
+//var TEST_REGEXP = /\.spec.es6$/;
+var TEST_REGEXP = /\.spec.js$/;
 
-Object.keys(window.__karma__.files).forEach(function(file) {
-  if (TEST_REGEXP.test(file)) {
-    allTestFiles.push(file);
-    console.log('allTestFiles: ', allTestFiles);
+// Object.keys(window.__karma__.files).forEach(function(file) {
+//   if (TEST_REGEXP.test(file)) {
+//     allTestFiles.push(file);
+//     console.log('allTestFiles: ', allTestFiles);
+//   }
+// });
+
+for (var file in window.__karma__.files) {
+  if (window.__karma__.files.hasOwnProperty(file)) {
+    if (TEST_REGEXP.test(file)) {
+      allTestFiles.push(file);
+      console.log('allTestFiles: ', allTestFiles);
+    }
   }
-});
+}
 
-require.config({
+requirejs.config({
 
   // Base URL relative to the test runner
   // Paths are relative to this
@@ -19,7 +28,8 @@ require.config({
 
   // paths: {
   //   'jquery'     : 'assets/vendors/jquery/dist/jquery.min',
-  //   'handlebars': 'assets/vendors/handlebars/handlebars.min',
+  //   'handlebars': 'assets/vendors/h
+  //   andlebars/handlebars.min',
   //   'ember': 'assets/vendors/ember/ember.prod',
   //   'ember-data' : 'assets/vendors/ember-data/ember-data.min',
   //   'adaptor': 'assets/vendors/mocha-adapter',

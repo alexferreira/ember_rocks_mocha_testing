@@ -1,6 +1,6 @@
 import {Anno} from './annotations.js';
 
-//@Anno
+@Anno
 export class Calculator {
   constructor() {}
 

@@ -8,10 +8,10 @@ describe('Calculator', function () {
   });
 
   it('should add', function () {
-    expect(calculator.add(2, 2)).toEqual(4);
+    (calculator.add(2, 2)).should.equal(4);
   });
 
   it('should subtract', function () {
-    expect(calculator.subtract(2, 1)).toEqual(1);
+    (calculator.subtract(2, 1)).should.equal(1);
   });
 });

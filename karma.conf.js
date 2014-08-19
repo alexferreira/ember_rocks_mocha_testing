@@ -10,12 +10,12 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'requirejs', 'traceur'],
+    frameworks: ['mocha', 'requirejs', 'chai', 'traceur'],
 
 
     // list of files / patterns to load in the browser
     files: [
-      {pattern: 'tests/client/**/*.js', included: false},
+      //{pattern: 'tests/client/**/*.js', included: false},
       {pattern: 'tests/client/**/*.es6', included: false},
       {pattern: 'tests/vendors/**/*.js', included: false},
       {pattern: 'client/app/**/*.js', included: false},
@@ -23,7 +23,9 @@ module.exports = function(config) {
 
       // 'client/assets/build/application.js',
       // 'client/assets/build/templates.js',
-      'tests/client/karma-config.js'
+      //'node_modules/karma-traceur-preprocessor/node_modules/traceur/bin/traceur-runtime.js',
+      'tests/client/karma-config.js',
+      'tests/client/*.spec.js'
 
       // 'client/assets/vendors/jquery/dist/jquery.min.js',
       // 'client/assets/vendors/handlebars/handlebars.min.js',
@@ -46,8 +48,8 @@ module.exports = function(config) {
 
     traceurPreprocessor: {
       options: {
-        sourceMap: true,
-        modules: 'requirejs',
+        //sourceMap: true,
+        modules: 'amd',
         annotations: true,
         types: true
       }
@@ -85,8 +87,8 @@ module.exports = function(config) {
     // - Safari (only Mac; has to be installed with `npm install karma-safari-launcher`)
     // - PhantomJS
     // - IE (only Windows; has to be installed with `npm install karma-ie-launcher`)
-    browsers: ['PhantomJS'],
-    //browsers: ['Chrome'],
+    //browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
@@ -99,8 +101,9 @@ module.exports = function(config) {
       'karma-mocha',
       'karma-chai',
       'karma-requirejs',
-      'karma-phantomjs-launcher'
-      //'karma-chrome-launcher'
+      'karma-traceur-preprocessor',
+      //'karma-phantomjs-launcher'
+      'karma-chrome-launcher'
     ]
   });
 };
