@@ -4,6 +4,7 @@ import DS from 'ember-data';
 import Resolver from 'ember/resolver';
 
 import Application from "rocks/app";
+//var App = require('rocks/app')['default'];
 
 describe('Calculator', function () {
   var calculator;

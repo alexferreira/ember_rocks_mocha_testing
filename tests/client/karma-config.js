@@ -21,7 +21,8 @@ requirejs.config({
     'ember-data' : 'assets/vendors/ember-data/ember-data.min',
     'adaptor': 'assets/vendors/mocha-adapter',
     'ember/load-initializers' : 'assets/vendors/ember-load-initializers/ember-load-initializers',
-    'ember/resolver' : '../tests/vendors/resolver'
+    'ember/resolver' : 'assets/vendors/ember-resolver/dist/ember-resolver'
+    //'ember/resolver' : '../tests/vendors/resolver'
   },
 
   shim : {

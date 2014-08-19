@@ -54,5 +54,6 @@ compass_app_log.txt
 client/assets/vendors/*
 !client/assets/vendors/almond.js
 !client/assets/vendors/globalizer.js
+!client/assets/build/*.js
 
 client/assets/styles/sass/framework

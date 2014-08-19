@@ -21,16 +21,11 @@ module.exports = function(config) {
       {pattern: 'client/app/**/*.js', included: false},
       {pattern: 'client/assets/vendors/**/*.js', included: false },
 
-      // 'client/assets/vendors/jquery/dist/jquery.min.js',
-      // 'client/assets/vendors/handlebars/handlebars.min.js',
-      // 'client/assets/vendors/ember/ember.js',
-      // 'client/assets/vendors/ember-data/ember-data.min.js',
-      // 'client/assets/vendors/mocha-adapter.js',
-
-      'client/assets/build/application.js',
-      'client/assets/build/templates.js',
+      'client/assets/vendors/globalizer.js',
       'tests/client/karma-config.js',
-      'tests/client/*.spec.js'
+      'tests/client/*.spec.js',
+      'client/assets/build/application.js',
+      'client/assets/build/templates.js'
     ],
 
 
