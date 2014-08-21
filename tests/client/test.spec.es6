@@ -3,8 +3,9 @@ import Ember from 'ember';
 import DS from 'ember-data';
 import Resolver from 'ember/resolver';
 
-//import Application from "rocks/app";
-//var App = require('rocks/app')['default'];
+import Application from "rocks/app";
+var App = Application['default'];
+//var Application = require('rocks/app')['default'];
 
 describe('Calculator', function () {
   var calculator;
@@ -40,7 +41,14 @@ describe('Vendor Resource', function () {
 });
 
 describe('Application', function () {
-  // it('should load up ember-rocks application', function(){
-  //   Application.create.should.be.an('function');
+  // beforeEach(function () {
+  //   Ember.run(function(){
+
+  //   })
   // });
+
+  it('should load up ember-rocks application', function(){
+    (typeof Application.create).should.be.exist;
+    (App.create).should.be.an('function');
+  });
 });
