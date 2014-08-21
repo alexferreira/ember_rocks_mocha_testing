@@ -24,7 +24,7 @@ module.exports = function(config) {
       'client/assets/vendors/globalizer.js',
       'tests/client/karma-config.js',
       'tests/client/*.spec.js',
-      'client/assets/build/application.js',
+      'tests/client/app/application.js',
       'client/assets/build/templates.js'
     ],
 

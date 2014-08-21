@@ -76,6 +76,20 @@ gulp.task('injectLRScript', function() {
  .pipe(gulp.dest(path.join(__dirname, clientFolder)));
 });
 
+
+gulp.task('ma', function() {
+  var src = 'client/assets/build/application.js',
+    dest = 'tests/client/app/',
+    depsReg = /((__dependency[0-9]*__)\["default"\])/g;
+
+  return gulp.src(src)
+    .pipe( $.replace( depsReg, "$1 || $2" ) )
+    .pipe(gulp.dest(dest));
+
+  });
+
+
+
 // Smart compile: if filename start with _, when save it will compile the whole project.
 // if filename is all text without _, when save it will only compile changed file
 gulp.task('sass', function() {
