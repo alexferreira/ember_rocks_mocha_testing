@@ -8,6 +8,9 @@ var App = Application['default'];
 
 import MochaAdapter from 'mocha-adapter';
 
+import StartApp from './helpers/start-app.js';
+
+
 describe('Calculator', function () {
   var calculator;
 
@@ -42,12 +45,6 @@ describe('Vendor Resource', function () {
 });
 
 describe('Application', function () {
-  // beforeEach(function () {
-  //   Ember.run(function(){
-
-  //   })
-  // });
-
   it('should load up ember-rocks application', function(){
     (typeof Application.create).should.be.exist;
     (App.create).should.be.an('function');
@@ -57,5 +54,30 @@ describe('Application', function () {
     //Ember.Test.adapter = Ember.Test.MochaAdapter.create();
     MochaAdapter.should.be.an('function');
     MochaAdapter.create.should.be.an('function');
+  });
+});
+
+
+describe('App Test', function () {
+  var TestApp;
+
+  // beforeEach(function () {
+  //   Ember.Test.adapter = MochaAdapter.create();
+  //   TestApp = StartApp();
+  //   visit('http://localhost:3001');
+  // });
+
+  // afterEach(function() {
+  //   TestApp.reset();
+  // });
+
+  // afterEach(function () {
+  //   Ember.run(TestApp, 'destroy');
+  // });
+
+  it('should load up custom mocha-adaptor', function(){
+    //Ember.Test.adapter = Ember.Test.MochaAdapter.create();
+    //StartApp.should.be.an('function');
+
   });
 });

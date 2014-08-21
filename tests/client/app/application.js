@@ -6,10 +6,6 @@ define("rocks/app",
     var Resolver = __dependency2__["default"] || __dependency2__;
     var loadInitializers = __dependency3__["default"] || __dependency3__;
     //import registerComponents from 'rocks/utils/register-components';
-    //
-    console.log('__dependency1__.VERSION: ', __dependency1__.VERSION);
-    console.log('Ember.VERSION: ', Ember.VERSION);
-    console.log('__dependency1__.App: ', typeof __dependency1__.Application);
 
     var App = Ember.Application.extend({
         LOG_ACTIVE_GENERATION: true,
@@ -29,7 +25,6 @@ define("rocks/app",
     //    registerComponents(container);
     //  }
     // });
-    console.log('App.create: ', typeof App.create);
 
     __exports__["default"] = App;
   });

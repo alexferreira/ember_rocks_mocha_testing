@@ -20,7 +20,7 @@ module.exports = function(config) {
       {pattern: 'client/app/**/*.js', included: false},
       {pattern: 'client/assets/vendors/**/*.js', included: false },
 
-      'tests/client/helpers/mocha-adapter.js',
+      'tests/client/helpers/*.js',
       'tests/client/karma-config.js',
       'tests/client/*.spec.js',
       'tests/client/app/application.js',

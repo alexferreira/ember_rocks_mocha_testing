@@ -11,16 +11,17 @@
   }
 } (typeof window !== 'undefined' ? window : this, function (Ember) {
 
-  var done, doneTimeout, isAsync, emberBdd, isPromise;
+  var done, doneTimeout, isAsync, emberBdd, isPromise, MochaAdapter;
 
   done = null;
   doneTimeout = null;
   isAsync = false;
 
-  Ember.Test.MochaAdapter = Ember.Test.Adapter.extend({
+  MochaAdapter = Ember.Test.Adapter.extend({
     init: function() {
       this._super();
       Mocha.interfaces['ember-bdd'] = emberBdd;
+      console.log('Mocha.interfaces: ', Mocha.interfaces['ember-bdd']);
       Mocha.ui('ember-bdd');
     },
     asyncStart: function() {
@@ -181,10 +182,10 @@
 
    // when use directly in the browser, export MochaAdapter as a global
    var ret = typeof window !== 'undefined'
-    ? window.MochaAdapter = Ember.Test.MochaAdapter
-    : Ember.Test.MochaAdapter;
+    ? window.MochaAdapter = MochaAdapter
+    : MochaAdapter;
 
    return ret;
-}))
+}));
 
 //Ember.Test.adapter = Ember.Test.MochaAdapter.create();

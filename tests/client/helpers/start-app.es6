@@ -8,6 +8,7 @@ var Application = RockApplication['default'],
   Router = RockRouter['default'];
 
 export default function startApp(attrs) {
+  console.log('hello from start app');
   var App;
 
   var attributes = Ember.merge({
