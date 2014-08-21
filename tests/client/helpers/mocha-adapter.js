@@ -21,8 +21,7 @@
     init: function() {
       this._super();
       Mocha.interfaces['ember-bdd'] = emberBdd;
-      console.log('Mocha.interfaces: ', Mocha.interfaces['ember-bdd']);
-      Mocha.ui('ember-bdd');
+      mocha.ui('ember-bdd');
     },
     asyncStart: function() {
       isAsync = true;

@@ -3,9 +3,14 @@
 import RockApplication from "rocks/app";
 import RockRouter from "rocks/router";
 import Ember from 'ember';
+import MochaAdapter from 'mocha-adapter';
 
 var Application = RockApplication['default'],
   Router = RockRouter['default'];
+
+document.write(
+  '<div id="ember-testing-container"><div id="ember-testing"></div></div>'
+);
 
 export default function startApp(attrs) {
   console.log('hello from start app');
@@ -17,7 +22,7 @@ export default function startApp(attrs) {
     LOG_VIEW_LOOKUPS: false,
     LOG_MODULE_RESOLVER: false,
     LOG_TRANSITIONS: false,
-    LOG_TRANSITIONS_INTERNAL: false,
+    LOG_TRANSITIONS_INTERNAL: false
   }, attrs); // but you can override;
 
   Router.reopen({
@@ -25,6 +30,8 @@ export default function startApp(attrs) {
   });
 
   Ember.run(function(){
+    Ember.Test.adapter = MochaAdapter.create();
+    console.log('Ember.Test.adapter: ', Ember.Test.adapter);
     App = Application.create(attributes);
     App.setupForTesting();
     App.injectTestHelpers();

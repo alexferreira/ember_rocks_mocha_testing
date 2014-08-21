@@ -6,10 +6,7 @@ import Resolver from 'ember/resolver';
 import Application from "rocks/app";
 var App = Application['default'];
 
-import MochaAdapter from 'mocha-adapter';
-
 import StartApp from './helpers/start-app.js';
-
 
 describe('Calculator', function () {
   var calculator;
@@ -57,27 +54,22 @@ describe('Application', function () {
   });
 });
 
-
+/*
 describe('App Test', function () {
   var TestApp;
 
-  // beforeEach(function () {
-  //   Ember.Test.adapter = MochaAdapter.create();
-  //   TestApp = StartApp();
-  //   visit('http://localhost:3001');
-  // });
+  beforeEach(function () {
+    TestApp = StartApp();
+    visit('http://localhost:3001');
+  });
 
   // afterEach(function() {
   //   TestApp.reset();
+  //   // Ember.run(TestApp, TestApp.destroy);
   // });
 
-  // afterEach(function () {
-  //   Ember.run(TestApp, 'destroy');
-  // });
-
-  it('should load up custom mocha-adaptor', function(){
-    //Ember.Test.adapter = Ember.Test.MochaAdapter.create();
-    //StartApp.should.be.an('function');
-
+  it('should have a page title', function(){
+    find('h1 a').text().should.equal('Ember Rocks');
   });
 });
+*/
