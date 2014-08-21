@@ -17,11 +17,10 @@ module.exports = function(config) {
     files: [
       //{pattern: 'tests/client/**/*.js', included: false},
       {pattern: 'tests/client/**/*.es6', included: false},
-      {pattern: 'tests/vendors/**/*.js', included: false},
       {pattern: 'client/app/**/*.js', included: false},
       {pattern: 'client/assets/vendors/**/*.js', included: false },
 
-      'client/assets/vendors/globalizer.js',
+      'tests/client/helpers/mocha-adapter.js',
       'tests/client/karma-config.js',
       'tests/client/*.spec.js',
       'tests/client/app/application.js',

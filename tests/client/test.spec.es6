@@ -5,7 +5,8 @@ import Resolver from 'ember/resolver';
 
 import Application from "rocks/app";
 var App = Application['default'];
-//var Application = require('rocks/app')['default'];
+
+import MochaAdapter from 'mocha-adapter';
 
 describe('Calculator', function () {
   var calculator;
@@ -50,5 +51,11 @@ describe('Application', function () {
   it('should load up ember-rocks application', function(){
     (typeof Application.create).should.be.exist;
     (App.create).should.be.an('function');
+  });
+
+  it('should load up custom mocha-adaptor', function(){
+    //Ember.Test.adapter = Ember.Test.MochaAdapter.create();
+    MochaAdapter.should.be.an('function');
+    MochaAdapter.create.should.be.an('function');
   });
 });

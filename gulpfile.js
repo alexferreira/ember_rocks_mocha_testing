@@ -42,10 +42,11 @@ var AutoPrefixerConfig = [
 // @describe need to be passed to be able to build the project
 gulp.task('lint', function() {
   var src = [
-    'gulpfile.js',
-    'client/app/**/*.js',
-    '!client/app/utils/register-components.js',
-    'server/**/*.js'
+    'tests/client/helpers/mocha-adapter.js'
+    // 'gulpfile.js',
+    // 'client/app/**/*.js',
+    // '!client/app/utils/register-components.js',
+    // 'server/**/*.js'
   ];
 
   return gulp.src( src )
