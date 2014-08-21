@@ -11,28 +11,36 @@
 * `em serve` (required, have to compile ES6 Ember modules)
 * `karma start`
 
-By default, `karma start` will run in *Chrome* browser. If you prefer `PhantomJS`, you could uncomment the line 71 and 83 of `./karma.conf.js`.
+By default, `karma start` will run in *Chrome* browser.
 
-You should see **2** successfully (green) tests in the console. That indicates that **mocha** and **karma** have been setup correctly. Head to `./tests/client/testing.spec.js`, you should see the two tests there. Any files end up with `.spec.js` will be run via `karma start`. Those two green tests are purely static, which needs to replace with the Ember Client side logic test.
 
+## What is working
+
+1> es6 compiler is working fine
+2> write a custom require.js to load ember modules, *package.json* fetch from my repo fork
+3> have a custom version of [ember-mocha-adapter](https://github.com/teddyzeenny/ember-mocha-adapter/blob/master/adapter.js), it supports AMD version instead of loading in the window. 
+4> import `ember`, `ember-data`, all libraries via require.js or es6 `import` statement
+5> *mocha* and *chai* setup correctly, able to run BDD tests
 
 ## Problems that I am having
 
-1.  Karma ES6 Module preprocessors
+I could not get *ember-testing* working. If you look at `~/tests/test.spec.es6`, this is the only file which is going to be tested now.
 
-There are a couple of candidates of ES6 Module preprocessors. 1> [karma-es6-module-preprocessor](https://github.com/Attamusc/karma-es6-module-preprocessor), which does not seem to work. Maybe it is my fault setting.  2> [karma-traceur-preprocessor](https://github.com/karma-runner/karma-traceur-preprocessor), which maintained by the [vojtajina](https://github.com/vojtajina), the maintainer of Karma project. I do not find any luck on any of those two projects. 
+If you run `karma start`, all 7 tests are passed. They tested the features of ES6, importing libraries statements, etc. 
 
-Solution 1: 
+Then uncomment the last tests ( line 58 )
 
-Finding a good Karma ES6 Module preprocessor so that it could compile ES6 module code like `import Resolver from 'ember/resolver';`. Hopefully, any test files could import anything from the *Application* *./client* folder logic (ES6 styles) as needed. Currently, karma runner won't execute correctly with an **parse error** which it confused with `import` statement. In current implementation, I have to do the *amd* style in `testing.spec.js`. But I could not include `./client/assets/build/application.js` and `./client/assets/build/template.js` to test any client side logic since those two files are already *amd* ready which concated all the defines statement.
+     describe('App Test', function () {
 
-Solution 2: 
+It will load up the `TestApp = StartApp();` the custom application from `~/tests/client/helpers/start-app.es6`. The problem that I am seeing is 
 
-I have implemented another gulp task in *gulpfile.js*. Line 318, `test` command. When you run `gulp test`, it will compile any ES6 modules in *./tests/client/*.spec.js* into a *amd* ready *./tests/build/*.spec.js* format. You need to do some configuration settings. Ex:  go to `./tests/client/karma-config.js`, shift the comment on line 4 and line 5. Well, it still won't work out of box since you need to add some es6 implemenation code there. 
+    1> Module name "ember/container-debug-adapter" has not been loaded yet for context: _. Use require([])
 
-Solution 3: 
+    2> Ember.Test.adapter:  {} 
 
-It may have to switch to [testem](https://github.com/airportyh/testem) instead of [karma](https://github.com/karma-runner/karma). But I really really like **karma**, and I had a lot of successful stories with Karma runner (without ES6 modules). 
+When I do the assignment of `Ember.Test.adapter = MochaAdapter.create();` at `~/tests/client/helpers/start-app.es6`, does it load correctly? Mocha testing helper is being applied?
+
+Question, what is this code doing `mocha.ui('ember-bdd');` at `~/tests/client/helpers/mocha-adapter.es6`
 
 
 ## Pull Requests or Sugguestions are needed
