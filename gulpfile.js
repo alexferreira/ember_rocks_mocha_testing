@@ -6,7 +6,8 @@ var gulp = require('gulp'),
   $ = require('gulp-load-plugins')(),
   del = require('del'),
   opn = require('opn'),
-  pagespeed = require('psi');
+  pagespeed = require('psi'),
+  karmaTestServer = require('node-karma-wrapper')({ configFile : './karma.conf.js'});
 
 // https://github.com/ai/autoprefixer. Default: > 1%, last 2 versions, Firefox ESR, Opera 12.1
 // Android, BlackBerry or bb, iOS
@@ -89,8 +90,6 @@ gulp.task('ma', function() {
 
   });
 
-
-
 // Smart compile: if filename start with _, when save it will compile the whole project.
 // if filename is all text without _, when save it will only compile changed file
 gulp.task('sass', function() {
@@ -156,14 +155,17 @@ gulp.task('imagemin', function() {
 // @describe compile es6 modules into amd modules
 gulp.task('buildjs', function () {
   return gulp.src(clientFolder + '/app/**/*.js')
-    .pipe($.es6ModuleTranspiler({
-      type: 'amd',
-      moduleName: function(path) {
-        return modulePrefix + '/' + path;
-      }
-    }))
-    .pipe($.concat('application.js'))
-    .pipe(gulp.dest(clientFolder + '/assets/build/'));
+        .pipe($.sourcemaps.init())
+        .pipe($.emberRocksTraceur({
+          modules: 'amd',
+          moduleName: true,
+          sourceMaps: true,
+          prefix: modulePrefix
+        }))
+        .pipe($.concat('application.js'))
+        .pipe($.sourcemaps.write())
+        .pipe(gulp.dest(clientFolder + '/assets/build/'));
+
 });
 
 // @describe pre-compile handlebars templates
@@ -330,16 +332,8 @@ function rebuildProject(event) {
   }
 }
 
-gulp.task('test', function () {
-  return gulp.src(['tests/client/**/*.js', '!tests/client/build/**/*.js'])
-    .pipe($.es6ModuleTranspiler({
-      type: 'amd',
-      moduleName: function(path) {
-        return 'TEST/' + path;
-      }
-    }))
-    //.pipe($.concat('application.js'))
-    .pipe(gulp.dest('tests/client/build'));
+gulp.task('test', [ 'build' ],  function () {
+  karmaTestServer.start();
 });
 
 gulp.task('serve', [ 'express', 'sass', 'build', 'injectLRScript' ], function() {
