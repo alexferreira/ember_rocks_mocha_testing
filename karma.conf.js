@@ -7,11 +7,9 @@ module.exports = function(config) {
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
-
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'requirejs', 'chai', 'traceur'],
-
+    frameworks: ['mocha-debug', 'mocha', 'requirejs', 'chai', 'emberRocksTraceur'],
 
     // list of files / patterns to load in the browser
     files: [
@@ -23,20 +21,18 @@ module.exports = function(config) {
       'tests/client/helpers/*.js',
       'tests/client/karma-config.js',
       'tests/client/*.spec.js',
-      'tests/client/app/application.js',
+      'client/assets/build/application.js',
       'client/assets/build/templates.js'
     ],
-
 
     // list of files to exclude
     exclude: [
     ],
 
-
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'tests/client/**/*.es6': ['traceur']
+      'tests/client/**/*.es6': ['emberRocksTraceur']
     },
 
     traceurPreprocessor: {
@@ -53,20 +49,16 @@ module.exports = function(config) {
     // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
     reporters: ['progress'],
 
-
     // web server port
     port: 9876,
 
-
     // enable / disable colors in the output (reporters and logs)
     colors: true,
-
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR
     // || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
     logLevel: config.LOG_INFO,
-
 
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: true,
@@ -80,7 +72,7 @@ module.exports = function(config) {
     // - Safari (only Mac; has to be installed with `npm install karma-safari-launcher`)
     // - PhantomJS
     // - IE (only Windows; has to be installed with `npm install karma-ie-launcher`)
-    //browsers: ['PhantomJS'],
+    // browsers: ['PhantomJS'],
     browsers: ['Chrome'],
 
     // Continuous Integration mode
@@ -92,10 +84,11 @@ module.exports = function(config) {
 
     plugins: [
       'karma-mocha',
+      'karma-mocha-debug',
       'karma-chai',
       'karma-requirejs',
-      'karma-traceur-preprocessor',
-      //'karma-phantomjs-launcher'
+      'karma-ember-rocks-traceur',
+      // 'karma-phantomjs-launcher',
       'karma-chrome-launcher'
     ]
   });
