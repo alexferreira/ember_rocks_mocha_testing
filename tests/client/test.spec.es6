@@ -2,9 +2,7 @@ import {Calculator} from './calculator.js';
 import Ember from 'ember';
 import DS from 'ember-data';
 import Resolver from 'ember/resolver';
-
-import Application from "rocks/app";
-var App = Application['default'];
+import App from "rocks/app";
 
 import StartApp from './helpers/start-app.js';
 
@@ -27,7 +25,7 @@ describe('Calculator', function () {
 describe('Vendor Resource', function () {
   it('should load up Ember framework', function(){
     Ember.should.be.an('object');
-    Ember.VERSION.should.equal('1.6.1');
+    Ember.VERSION.should.equal('1.7.0');
   });
 
   it('should load up Ember Data framework', function(){
@@ -43,7 +41,7 @@ describe('Vendor Resource', function () {
 
 describe('Application', function () {
   it('should load up ember-rocks application', function(){
-    (typeof Application.create).should.be.exist;
+    (typeof App.create).should.be.exist;
     (App.create).should.be.an('function');
   });
 
@@ -60,7 +58,7 @@ describe('App Test', function () {
 
   beforeEach(function () {
     TestApp = StartApp();
-    visit('http://localhost:3001');
+    visit('/');
   });
 
   // afterEach(function() {
